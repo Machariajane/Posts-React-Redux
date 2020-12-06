@@ -5,15 +5,13 @@ class Postform extends Component {
         super(props);
         this.state = {
             title:'',
-            body:'',
-            message:' ADD POST'
+            body:''
           
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
       }
       //e is the event parameter
-      //this are methods that affect an event
     onChange(e) {
         this.setState({[e.target.name]:e.target.value});
     }
@@ -35,19 +33,13 @@ class Postform extends Component {
             .then(data => console.log(data));
             
         }
-        changeMessage() {
-          this.setState((prevState => ({
-            message:'ongeza Post'
-          })))
-        }
-    //remember 1.setstate
-    //2.callbackvalues as a second parameter 
-    //3.use prevstate to change depending on prevsttate
+
+    
 
   render() {
     return (
       <div>
-        <h1>{ this.state.message }</h1>
+        <h1>Add Post</h1>
         <form onSubmit={this.onSubmit}>
             <div>
               <label>Title;</label><br />
@@ -60,7 +52,6 @@ class Postform extends Component {
             </div>
             <br />
             <button type='submit'>submit</button>
-            <button onClick={ () => this.changeMessage()}>Subscribe</button>
         </form>
       </div>
     )

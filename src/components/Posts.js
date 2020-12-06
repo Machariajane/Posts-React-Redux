@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
 class Posts extends Component {
-  //the name props doesnt seem to be necessary in line 5 and 6
-  //shortcut is rconst
   constructor(props) {
     super(props);
     this.state = {
@@ -23,13 +21,10 @@ class Posts extends Component {
       </div>
     ));
     return (
-      //jsx has only one parent wrapper 
       <div>
-        <h1>Posts {this.props.name}</h1>
-        {this.props.children}
+        <h1>Posts</h1>
         {postItems}
       </div>
-     
     )
   }
 }
