@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Posts from './components/Posts';
 import Postform from './components/Postform';
@@ -7,22 +6,22 @@ import Postform from './components/Postform';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Postform />
+      
+      <Postform />  
       <hr />
-      <Posts />
+      <Posts name='Waithira'><button>Action</button></Posts>
     </div>
   );
 }
 
 export default App;
+//for properties you are sure going to be passed ,
+//pass the props as attributes e.g above name 
+//all this attributes are bundled together as properties
+//for properties you are not sure of passs them as children
+//this also applys for dyanmic html contents 
+//pass it in between the tages and call as props.children
+//in functional components props.name
+// in class components this.props.name 
+//props are immutable,their values cant be changrd
+
