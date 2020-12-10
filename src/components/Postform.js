@@ -9,6 +9,7 @@ class Postform extends Component {
             message:' ADD POST'
           
         };
+        this.changeMessage = this.changeMessage.bind(this)
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
       }
@@ -36,9 +37,10 @@ class Postform extends Component {
             
         }
         changeMessage() {
-          this.setState((prevState => ({
-            message:'ongeza Post'
-          })))
+          this.setState({
+            message:'Ongeza Post'
+          })
+          console.log('clicked')
         }
     //remember 1.setstate
     //2.callbackvalues as a second parameter 
@@ -50,7 +52,7 @@ class Postform extends Component {
         <h1>{ this.state.message }</h1>
         <form onSubmit={this.onSubmit}>
             <div>
-              <label>Title;</label><br />
+              <label>Title:</label><br />
               <input type='text'name='title' onChange={this.onChange} value={this.state.title} />
             </div>
             <div>
@@ -60,7 +62,7 @@ class Postform extends Component {
             </div>
             <br />
             <button type='submit'>submit</button>
-            <button onClick={ () => this.changeMessage()}>Subscribe</button>
+            <button onClick={ this.changeMessage}>Subscribe</button>
         </form>
       </div>
     )
@@ -70,3 +72,13 @@ class Postform extends Component {
 
 
 export default Postform;
+
+//<button onClick={ () => this.changeMessage()}>Subscribe</button>
+//if you add parethensis like above,its a function call 
+// without () its just a function yo are calling 
+//binding this 
+//onClick = {this.changeMessages.bind(this)}
+////onClick =()=>  {this.changeMessages(this)} arrow method
+//onClick={this.changeMessasge } ,we are binding in the constructor 
+// final approach , use arrow function as a class property
+//in the costructor  use an arrow function 

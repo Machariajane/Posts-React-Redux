@@ -24,9 +24,10 @@ class Posts extends Component {
     ));
     return (
       //jsx has only one parent wrapper 
+      //added props trials 
       <div>
-        <h1>Posts {this.props.name}</h1>
-        {this.props.children}
+        <h1>Posts </h1>
+      
         {postItems}
       </div>
      

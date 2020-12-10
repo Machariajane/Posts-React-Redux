@@ -9,11 +9,13 @@ function App() {
       
       <Postform />  
       <hr />
-      <Posts name='Waithira'><button>Action</button></Posts>
+      <Posts />
     </div>
   );
 }
-
+// in this case parent passes props to children component 
+//if a child component wants to talk to a parent component ?
+//we use props,but we pass in a reference to a method as props to the child component 
 export default App;
 //for properties you are sure going to be passed ,
 //pass the props as attributes e.g above name 
