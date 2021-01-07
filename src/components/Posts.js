@@ -21,16 +21,8 @@ class Posts extends Component {
       </div>
     ));
     return (
-<<<<<<< HEAD
-      //jsx has only one parent wrapper 
-      //added props trials 
-      <div>
-        <h1>Posts </h1>
-      
-=======
       <div>
         <h1>Posts</h1>
->>>>>>> reduxbranch
         {postItems}
       </div>
     )
