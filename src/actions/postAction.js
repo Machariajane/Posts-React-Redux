@@ -9,7 +9,7 @@ export const fetchPosts = () => dispatch=>  {
            payload: posts
       }));
     }
-export const createPost = (postData) => dispatch=>  {
+export const createPost = postData => dispatch=>  {
     
     fetch('https://jsonplaceholder.typicode.com/posts',{
         method:'POST',
