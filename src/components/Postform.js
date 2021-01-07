@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { createPost } from '../actions/postAction';
 
 class Postform extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username:'',
-            email:'',
-            password:''
+            title:'',
+            body:'',
+            message:' ADD POST'
           
         };
         this.changeMessage = this.changeMessage.bind(this)
@@ -17,6 +14,7 @@ class Postform extends Component {
         this.onSubmit = this.onSubmit.bind(this);
       }
       //e is the event parameter
+      //this are methods that affect an event
     onChange(e) {
         this.setState({[e.target.name]:e.target.value});
     }
@@ -25,20 +23,33 @@ class Postform extends Component {
         const post = {
             title: this.state.title,
             body: this.state.body
-            
             }
+            fetch('https://jsonplaceholder.typicode.com/posts',{
+                method:'POST',
+                headers: {
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(post)
 
-
-      this.props.createPost(post);
-
-          }
-
-    
+            })
+            .then(res => res.json())
+            .then(data => console.log(data));
+            
+        }
+        changeMessage() {
+          this.setState({
+            message:'Ongeza Post'
+          })
+          console.log('clicked')
+        }
+    //remember 1.setstate
+    //2.callbackvalues as a second parameter 
+    //3.use prevstate to change depending on prevsttate
 
   render() {
     return (
       <div>
-        <h1>Add Post</h1>
+        <h1>{ this.state.message }</h1>
         <form onSubmit={this.onSubmit}>
             <div>
               <label>Title:</label><br />
@@ -49,18 +60,25 @@ class Postform extends Component {
               <label>Body:</label><br />
               <textarea name='body' onChange={this.onChange} value={this.state.body} />
             </div>
-           
             <br />
             <button type='submit'>submit</button>
+            <button onClick={ this.changeMessage}>Subscribe</button>
         </form>
-        
       </div>
     )
   }
 }
 
-Postform.propTypes={
-  createPost: PropTypes.func.isRequired
-}
 
-export default connect(null, { createPost })(Postform);
+
+export default Postform;
+
+//<button onClick={ () => this.changeMessage()}>Subscribe</button>
+//if you add parethensis like above,its a function call 
+// without () its just a function yo are calling 
+//binding this 
+//onClick = {this.changeMessages.bind(this)}
+////onClick =()=>  {this.changeMessages(this)} arrow method
+//onClick={this.changeMessasge } ,we are binding in the constructor 
+// final approach , use arrow function as a class property
+//in the costructor  use an arrow function 
